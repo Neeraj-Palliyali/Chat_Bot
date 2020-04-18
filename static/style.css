@@ -39,9 +39,15 @@ h3 {
     font-size: 17px;
 }
 
+
 #buttonInput {
     padding: 3px;
     font-family: monospace;
+    font-size: 17px;
+}
+
+#micrbtn{
+    padding: 3px;
     font-size: 17px;
 }
 
