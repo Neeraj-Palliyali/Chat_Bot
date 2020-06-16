@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    
+    <div class="testbox">
+      <div class="shaheen">
+      <div id="chatbox">
+       
+        <br>
+        <h1>MED-BOT</h1>
+        <br><br>
+        <p class="botText"><span>Please try typing full sentences as I am still learning!</span></p>
+        <p class="botText"><span>I am a chatbot. You can begin conversation by typing in a message and pressing enter.</span></p>
+        <p class="botText"><span>Hi There! What is your name?</span></p>
+      </div >
+      <center>  
+      <div id="userInput">
+        <div class="row">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        </div>
+        
+        <button id="buttonInput" type="submit" value="Send" >
+          Send
+          <i class="fa fa-paper-plane" aria-hidden="true"></i> 
+          
+        </button>
+       
+      
+      
+        <button id="micrbtn"><i class="fas fa-microphone"></i></button>
+      
+    </div>  
+    </center>
+    
+      </div>
+    </div>
+  </div>
+      <script>
+
+        const Speechrecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        const recognition = new Speechrecognition();
+
+        function getBotResponse() {
+          var rawText = $("#textInput").val();
+          var userHtml = '<p class="userText"><span>' + rawText + '</span></p>';
+          $("#textInput").val("");
+          $("#chatbox").append(userHtml);
+          document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          $.get("/get", { msg: rawText }).done(function(data) {
+            var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+            $("#chatbox").append(botHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+          });
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+          getBotResponse();
+        });
+
+
+        if(Speechrecognition){ // To check if browser support web speech API
+
+          const micrbtn = document.getElementById('micrbtn') //The microphone button
+          const micricon = document.querySelector('i'); // The icon inside button element
+          const recognition = new Speechrecognition(); 
+          micrbtn.addEventListener('click',()=>{
+            if(micricon.classList.contains('fa-microphone')){
+              recognition.start();
+            }
+            else{
+              recognition.stop();
+            }
+          })
+
+          // Event listner when we click on button
+
+          recognition.addEventListener('start',()=>{
+            micricon.classList.remove('fa-microphone');
+            micricon.classList.add('fa-microphone-slash');
+          })
+          // Event listener after recording finishes
+          recognition.addEventListener('end',()=>{
+            micricon.classList.remove('fa-microphone-slash');
+            micricon.classList.add('fa-microphone');
+          })
+
+          // The Resultant event
+
+          recognition.addEventListener('result',(event)=>{
+            const transcript = event.results[0][0].transcript
+            setTimeout((event)=>{
+              $('#textInput').val(transcript);
+              getBotResponse();
+            },700);
+          })
+        }
+
+
+
+
+        else{
+          alert('Not supported, Use Chrome')
+        }
+
+      </script>
+    </div>
+  <script src="https://kit.fontawesome.com/89c4215cf0.js" crossorigin="anonymous"></script>  
+  </body>
+</html>

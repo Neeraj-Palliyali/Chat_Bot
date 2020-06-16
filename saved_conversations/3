@@ -1,0 +1,13 @@
+bot : Hi There! I am a medical chatbot. You can begin conversation by typing in a message and pressing enter.
+user : hey Google
+bot : - no i am completely offline
+user : Haryanvi
+bot : - no i am completely offline
+user : Army online
+bot : - no i am completely offline
+user : online
+bot : - no i am completely offline
+user : i dont feel so well
+bot : - okay. can you tell me what's wrong? what are your symptoms?
+user : high fever
+bot : - good to know. how may i assist you then?

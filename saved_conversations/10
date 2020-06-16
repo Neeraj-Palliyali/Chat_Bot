@@ -1,0 +1,9 @@
+bot : Hi There! I am a medical chatbot. You can begin conversation by typing in a message and pressing enter.
+user : Neeraj P
+bot : - good to know. how may i assist you then?
+user : I have throat pain
+bot : - Are you dehydrated?
+user : yes i do
+bot : - ok, is there a swelling or a physical deformity or bleeding at the aching region.
+user : No there is'nt
+bot : - okay, it is a common symptom of fracture, should I book an an appointment for you.
