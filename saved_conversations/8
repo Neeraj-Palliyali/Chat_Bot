@@ -1,1 +1,7 @@
 bot : Hi There! I am a medical chatbot. You can begin conversation by typing in a message and pressing enter.
+user : Neeraj
+bot : - good to know. how may i assist you then?
+user : I have throat pain
+bot : - Are you dehydrated?
+user : dfg
+bot : - okay. can you tell me what's wrong? what are your symptoms?

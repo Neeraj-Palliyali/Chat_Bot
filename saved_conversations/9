@@ -1,1 +1,11 @@
 bot : Hi There! I am a medical chatbot. You can begin conversation by typing in a message and pressing enter.
+user : arun
+bot : - no i am completely offline
+user : Mashooq
+bot : - okay. your age has been stored. Which city do you live in?
+user : KErala
+bot : - can you be more specific?
+user : Nilambur
+bot : - good to know. how may i assist you then?
+user : I feel sick
+bot : - okay. can you tell me what's wrong? what are your symptoms?
