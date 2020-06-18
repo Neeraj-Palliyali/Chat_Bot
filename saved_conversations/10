@@ -1,9 +1,5 @@
 bot : Hi There! I am a medical chatbot. You can begin conversation by typing in a message and pressing enter.
 user : Neeraj
 bot : - good to know. how may i assist you then?
-user : Throat pain
-bot : - Okay, this is a symptom of cough , do you have cough?
-user : yes
-bot : - please be more specific, i am just learning.
-user : I have cough
-bot : - You should take a spoon full of benadryl after your meal.
+user : okay,could you elaborate?
+bot : The query is not right!!!!!
