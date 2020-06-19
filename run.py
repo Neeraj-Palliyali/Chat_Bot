@@ -34,7 +34,7 @@ def home():
 def get_bot_response():
     userText = request.args.get('msg')
     response = str(english_bot.get_response(userText))
-    if("  - " in response):
+    if("- -" in response):
         response = "The query is not right!!!!!"
 
     appendfile=os.listdir('saved_conversations')[-1]
